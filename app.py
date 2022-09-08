@@ -1,6 +1,8 @@
-from src import canvas_lable
-from tkinter import *
+# from src import canvas_lable
+from tkinter import * 
+import os
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 root=Tk()
 
@@ -29,14 +31,24 @@ def update_time():
 
 update_time()
 
-from src.quests import *
+# 载入url页面
+def load_url(url):
+    import webbrowser
+    webbrowser.open(url)
 
-print(canvas.find_all())
-# 添加任务
-q1=Quest1(canvas,50)
+# 添加按钮
+canvas.create_text(50,50,text='打开百度',font=('楷体',15),fill='white',justify="center",anchor="nw",tag='baidu')
+canvas.tag_bind('baidu','<Button-1>',lambda e:load_url('https://www.baidu.com'))
+
+# 添加文本
+canvas.create_text(50,100,text='这是一段文本',font=('楷体',15),fill='white',justify="center",anchor="nw",tag='text')
+
+# 添加图片
+canvas.create_image(50,150,image=PhotoImage(file='static/bg10.png'))
+
+# 添加输入框
 
 
-q2=Quest2(canvas,q1.end_y())
 
 # 载入canvas
 

@@ -50,7 +50,7 @@ class Quest(metaclass=ABCMeta):
         return {
             "text":"   - "+note,
             "font":(self.font_name, self.note_font,"italic"),
-            "fill":self.levels_color[self.level],
+            "fill":"#ffe5e5",
             "anchor":"nw",
         }
     
@@ -104,12 +104,11 @@ class QuestDetail:
         # 获取父路径
         path=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         # 设定背景图片
-        self.bg=PhotoImage(file=path+"/static/bg10.png")
-        self.canvas=Canvas(self.tk,width=400,height=600)
-        self.canvas.create_image(0,0,anchor="nw",image=self.bg)
-        
-        
-        self.canvas.pack()
+        self.bg=PhotoImage(file=path+"/static/question-background.png")
+        self.canvas=Canvas(self.tk,width=900,height=1600)
+        self.canvas.create_image(0,0,anchor="nw",image=self.bg,tag="bg")
+        # 图片拉伸
+        self.canvas.pack(expand="yes")
         self.canvas.create_text(200,20,text=quest.name,font=(quest.font_name,quest.name_font,"bold"),fill=quest.levels_color[quest.level],anchor="n") 
         self.tk.mainloop()           
         
