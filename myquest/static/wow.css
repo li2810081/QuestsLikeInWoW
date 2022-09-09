@@ -1,0 +1,256 @@
+/* body */
+body {
+    font-size: small;
+    font-family: "楷体";
+    color: orange;
+    background: url("images/bg3.jpg");
+    background-color: aliceblue;
+    overflow: hidden;
+}
+
+/* 图标 */
+
+.wow-icon {
+    /* position: absolute; */
+    /* 指定背景图片,设置图片大小为200*200 */
+    background: url('QUESTFRAME/QuestTypeIcons.PNG') no-repeat;
+    /* background-size: 107px 65px; */
+    /* 指定图片的位置 */
+    height: 19px;
+    width: 15px !important;
+}
+
+.wow-icon .done-quest {
+    background-position: -15px 0px;
+}
+
+.wow-icon .undone-quest {
+    background-position: -15px 0px;
+    /* 图片灰色 */
+    filter: grayscale(100%);
+}
+
+.wow-icon .dayly-quest {
+    background-position: -30px 0px;
+}
+
+.wow-icon .nomal-quest {
+    background-position: 0px -16px;
+}
+
+
+/* 主窗体 */
+
+
+.quest-frame {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 800px;
+    width: 1300px;
+}
+
+.header-icon {
+    position: absolute;
+    top: 20px;
+    left: 27px;
+    height: 50px;
+    width: 50px;
+    background: url('QUESTFRAME/UI-QuestLog-BookIcon.PNG') no-repeat;
+    background-size: 57px 57px;
+}
+
+.header-icon:hover {
+    animation: test 1s steps(4) infinite;
+    /* 设置动画参数 */
+}
+
+@keyframes test {
+    from {
+        background-position: 0 0px;
+        /* 起始位置 */
+    }
+
+    to {
+        background-position: -5px -10px;
+        /* 结束位置 */
+    }
+}
+
+.bg-1 {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 800px;
+    height: 600px;
+    background: url("QUESTFRAME/UI-QuestLogDualPane-Left.PNG") no-repeat;
+    background-size: 650px 600px;
+    /* 最底 */
+    z-index: -10000;
+}
+
+.bg-2 {
+    position: absolute;
+    top: 8px;
+    left: 400px;
+    width: 550px;
+    height: 600px;
+    background: url("QUESTFRAME/UI-QUESTLOGDUALPANE-RIGHT.PNG") no-repeat;
+    background-size: 292px 600px;
+    background-position-x: right;
+    z-index: -10000;
+}
+
+.quest-frame .header {
+    clear: both;
+    height: 90px;
+    width: 100%;
+}
+
+.quest-frame .quest-left {
+    width: 30.7%;
+    height: 400px;
+    /* 只许可纵向滚动 */
+    overflow-y: scroll;
+    float: left;
+    padding-left: 44px;
+    /* 行间距 */
+    line-height: -2px;
+    display:block;
+}
+.quest-single{
+    width: 100%;
+    height: 20px;
+    line-height: 18px;
+}
+.quest-single:hover {
+    /* background-color: #f0f0f0; */
+    background: url('Buttons/UI-Listbox-Highlight2.PNG') no-repeat;
+    background-size: 100%;
+    /* 文字描边,加粗 */
+    text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000;
+    
+    /* 边框发光 */
+    /* box-shadow: 0 0 10px #fff; */
+}
+
+
+.quest-frame .quest-right {
+    color: black;
+    width: 29.8%;
+    height: 366px;
+    overflow-y: scroll;
+    float: left;
+    padding-left: 12px;
+    padding-top: 15px;
+}
+
+.quest-detail{
+    padding-right: 15px;
+}
+/* 左窗体 */
+
+.btn-group {
+    position: absolute;
+    left: 31px;
+    top: 491px;
+    width: 100%;
+
+}
+
+.btn-group div {
+    display: inline-block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.wow-btn {
+    font-family: "楷体";
+    color: #aa7501;
+    /* 无边框 */
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    background: url('BUTTONS/UI-Panel-Button-Up.PNG') no-repeat;
+    background-size: 163% 159%;
+    background-position: 0 0;
+}
+
+
+.wow-btn:hover {
+    /*文字宽发光 */
+
+    text-shadow: 0 0px 20px #fff;
+}
+
+.wow-btn:active {
+    background: url('BUTTONS/UI-Panel-Button-Down.PNG') no-repeat;
+    background-size: 163% 159%;
+    background-position: 0 0;
+}
+
+.btn-refre {
+    width: 136px;
+    margin-left: 0px;
+}
+
+.btn-follow {
+    width: 121px;
+    margin-left: -4px;
+}
+
+.btn-abanbu {
+    width: 122px;
+    margin-left: -5px;
+}
+
+.btn-bye {
+    width: 92px;
+    margin-left: 329px;
+}
+
+
+::-webkit-scrollbar {
+    width: 23px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    /* 背景透明 */
+    background: transparent;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    /* 滑块背景图 */
+    /* background: url("BUTTONS/UI-ScrollBar-Knob.PNG") ; */
+    /* 滑块颜色 */
+    background: #4a4542;
+    /* 圆角 */
+    border-radius: 5px;
+    /* 阴影 */
+    box-shadow: inset 0 0 5px #000;
+}
+
+
+.jiangli h5{
+    width: 100%;
+    height: 80px;
+    background: url('QUESTFRAME/WorldQuest.PNG') no-repeat;
+    background-size: 183% auto;
+    text-align: center;
+    line-height: 120px;
+    font-size: 25px;
+    color: yellow;
+    /* 发光 */
+    text-shadow: 0 0 10px #fff;
+    background-position: 0 0;
+}
+.jiangli p{
+    margin-top: -25px;
+    /* 加粗 */
+    font-weight: bold;
+
+}

@@ -25,14 +25,14 @@ SECRET_KEY = 'django-insecure-tk5q16%wl3_ns#zjg_ubn#=(n=z3^zc_3h-c0(@xq5f))vi9w4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT=BASE_DIR / 'static'
+STATIC_ROOT=BASE_DIR / 'myquest'/ 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
