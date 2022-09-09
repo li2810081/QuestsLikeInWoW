@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 class Quest(models.Model):
     CHOICE_STATUS = (
-        (0, '未开始'),
-        (1, '进行中'),
-        (2, '已完成'),
+        (0, '启用'),
+        (1, '弃用'),
+        (2, '测试'),
     )
     CHOICE_LEVEL = (
         (0, '日常'),
@@ -19,8 +19,6 @@ class Quest(models.Model):
     remark = models.CharField(max_length=50, verbose_name='任务备注')
     description = models.CharField(max_length=50, verbose_name='任务描述')
     award=models.CharField(max_length=50,verbose_name='任务奖励')
-
-
 
     class Meta:
         verbose_name = '任务'

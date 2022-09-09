@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
        self.stdout.write(self.style.HTTP_INFO("启动任务界面"))
 
-       from myquest.frames import QuestWindow
+       from myquest.qt_frames import QuestWindow
        windows=QuestWindow("任务")
        windows.run()
 

@@ -9,10 +9,13 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="{% static 'wow.css' %}">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
 <body>
+    
     <div class="quest-frame">
         <div class="bg-1"></div>
         <div class="bg-2"></div>
@@ -21,25 +24,34 @@
         <div class="quest-left">
             {% for quest in quests %}
             <div class="quest-single" quest-id="{{quest.id}}">
-                <div>[{{ quest.id }}]{% lorem 4 w random %}{{ quest.status }}</div>
+                <div>[{{ quest.id }}]{{ quest.name }}</div>
+               
             </div>
             {% endfor %}
-          
-            
+        {{ jsondata|json_script:"quest-data" }}            
         </div>
         <div class="quest-right">
                 <div class="quest-detail">
                     <h3 class="title">{% lorem 2 w random %}</h3>
-                    <div class="remark">{% lorem 20 w random %}</div>
+                    <div class="remark">
+                        <span>
+                            {% lorem 20 w random %}
+                        </span>
+                    </div>
                     <div class="detail">
                         <h5>描述</h5>
-                        {% lorem %}
+                        <span>
+
+                            {% lorem %}
+                        </span>
                     </div>
                     <div class="jiangli">
                         <h5>奖励</h5>
                         <p>你将获得:</p>
-                        
-                        {% lorem 1 w random %} X 10
+                        <span>
+                            {% lorem 1 w random %} X 10
+
+                        </span>
                     </div>
                 </div>
             
@@ -54,13 +66,41 @@
     </div>
 
 <script>
-    var quest = document.getElementsByClassName('quest-single');
-    var quest_detail = document.getElementById('qt_detail');
-    for (var i = 0; i < quest.length; i++) {
-        quest[i].addEventListener('click', function () {
-            quest_detail.getElementsByClassName('title')[0].innerHTML = this.getElementsByTagName('p')[0].innerHTML;    
-        })
-    }
+    
+    // document.ready
+    $(document).ready(function () {
+        
+        
+        const quest_json = JSON.parse(document.getElementById('quest-data').textContent);
+        
+        $(".quest-single").click(function(){
+            const q_id=$(this).attr("quest-id");
+            console.log("click");
+            const s_data=quest_json.find((item)=>item.id==q_id);
+            
+            fill_data(s_data)
+        });
+
+        $(".btn-bye").click(function(){
+            // 动画淡出quest-frame
+            $(".quest-frame").animate({
+                
+                opacity:0,
+            },1000,function(){
+                $(".quest-frame").css("display","none");
+            });
+        
+            
+        });
+        function fill_data(q_detail){
+            $(".quest-detail .title").html(q_detail.name);
+            $(".quest-detail .remark span").html(q_detail.remark);
+            $(".quest-detail .detail span").html(q_detail.description);
+            $(".quest-detail .jiangli span").html(q_detail.award+" X 20");
+            
+        }
+    })
+
 </script>
 </body>
 
